@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Intel Edison Bulb</title>
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+    </head>
+
+    <body style="background-color: #1173C2;">
+        <h1 style="color: white; font-family: sans-serif">Intel Edison Bulb</h1>
+        <input type="range" name="red" id="red" max="255" min="0"/>
+        <input type="range" name="blue" id="blue" max="255" min="0"/>
+        <input type="range" name="green" id="green" max="255" min="0"/>
+
+        <script>
+            var socket = io.connect(document.URL);
+
+            $("#red").on("change", function () {
+                socket.emit('changeRed', this.value);
+            });
+
+            $("#blue").on("change", function () {
+                socket.emit('changeBlue', this.value);
+            });
+
+            $("#green").on("change", function () {
+                socket.emit('changeGreen', this.value);
+            });
+            function changeRed() {
+
+            }
+            function changeBlue() {
+
+            }
+            function changeGreen() {
+
+            }
+        </script>
+    </body>
+</html>
+
